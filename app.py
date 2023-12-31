@@ -1,11 +1,22 @@
-from flask import Flask, render_template
+import math
+
+from flask import Flask, render_template, url_for, request, redirect
+from pymongo import MongoClient
 
 app = Flask(__name__)
+
+# MongoDb Client
+client = MongoClient('localhost', 27017)
+# MongoDB database
+db = client.serenova
+# MongoDB products collection/table
+products = db.products
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    featured_products = products.find({"ProductId": {"$in": [5467, 24835, 17846]}})
+    return render_template('index.html', featured_products=featured_products)
 
 
 @app.route('/shop-single')
@@ -20,7 +31,29 @@ def about():
 
 @app.route('/shop')
 def shop():
-    return render_template('shop.html')
+    CATEGORIES = [
+        "Sports Shoes", "Skirts", "Leggings", "Shirts", "Flip Flops",
+        "Clothing Set", "Jackets", "Sandals", "Trousers", "Churidar",
+        "Sports Sandals", "Booties", "Innerwear Vests", "Formal Shoes",
+        "Shorts", "Rompers", "Tops", "Waistcoat", "Casual Shoes", "Kurtas",
+        "Capris", "Blazers", "Jeans", "Heels", "Flats", "Salwar",
+        "Lehenga Choli", "Tshirts", "Dresses", "Kurta Sets", "Sweatshirts"
+    ]
+    PRODUCT_PER_PAGE = 18
+
+    page = request.args.get('page', 1, type=int)
+    subcategory = request.args.get('category', 'Sports Shoes', type=str)
+
+    skipCount = PRODUCT_PER_PAGE * (page - 1)
+    pagination_products = products.find({"ProductType": subcategory}).skip(skipCount).limit(PRODUCT_PER_PAGE)
+
+    productCount = products.count_documents({"ProductType": subcategory})
+    pageCount = math.ceil(productCount / PRODUCT_PER_PAGE)
+
+    return render_template(
+        'shop.html', products=pagination_products, categories=CATEGORIES,
+        checked_cat=subcategory, pageCount=pageCount, productCount=productCount
+    )
 
 
 @app.route('/contact')
