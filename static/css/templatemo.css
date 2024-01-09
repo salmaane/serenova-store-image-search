@@ -67,6 +67,18 @@ body, ul, li, p, a, label, input, div {
   background-color: #69bb7e;
   color: #fff;
 }
+.pagination .page-link-top {
+  background-color: transparent;
+  color: #444;
+  text-decoration: none;
+  font-size: 13px;
+}
+.pagination .page-link-top:hover {
+  color: #000;
+}
+.pagination #page-count strong{
+  font-size: 15px;
+}
 /* Nav */
 #templatemo_nav_top { min-height: 40px;}
 #templatemo_nav_top * { font-size: .9em !important;}
@@ -81,6 +93,9 @@ body, ul, li, p, a, label, input, div {
 .templatemo-accordion a:hover { color: #333d4a;}
 /* Shop */
 .shop-top-menu a:hover { color: #69bb7e !important;}
+.page-item.disabled a.page-link {
+  background-color: #9ec79f;
+}
 /* Product */
 .product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}
 .product-wap .product-color-dot.color-dot-red { background:#f71515;}

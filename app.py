@@ -39,20 +39,22 @@ def shop():
         "Capris", "Blazers", "Jeans", "Heels", "Flats", "Salwar",
         "Lehenga Choli", "Tshirts", "Dresses", "Kurta Sets", "Sweatshirts"
     ]
-    PRODUCT_PER_PAGE = 18
+    PRODUCT_PER_PAGE = 24
 
     page = request.args.get('page', 1, type=int)
     subcategory = request.args.get('category', 'Sports Shoes', type=str)
 
     skipCount = PRODUCT_PER_PAGE * (page - 1)
-    pagination_products = products.find({"ProductType": subcategory}).skip(skipCount).limit(PRODUCT_PER_PAGE)
+    products_page = products.find({"ProductType": subcategory}).skip(skipCount).limit(PRODUCT_PER_PAGE)
 
     productCount = products.count_documents({"ProductType": subcategory})
     pageCount = math.ceil(productCount / PRODUCT_PER_PAGE)
 
+    print(pageCount)
+
     return render_template(
-        'shop.html', products=pagination_products, categories=CATEGORIES,
-        checked_cat=subcategory, pageCount=pageCount, productCount=productCount
+        'shop.html', products=products_page, categories=CATEGORIES,
+        checked_cat=subcategory, pageCount=pageCount, currentPage=page, productCount=productCount
     )
 
 
