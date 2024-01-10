@@ -19,9 +19,17 @@ def home():
     return render_template('index.html', featured_products=featured_products)
 
 
-@app.route('/shop-single')
-def shopSingle():
-    return render_template('shop-single.html')
+@app.route('/shop-single/<int:pid>')
+def shopSingle(pid):
+    product = products.find_one({"ProductId": pid})
+
+    random_related_pipeline = [
+        {"$match": {"SubCategory": product['SubCategory'], "Gender": {"$ne": "Women"}}},
+        {"$sample": {"size": 12}}
+    ]
+    related_products = list(products.aggregate(random_related_pipeline))
+
+    return render_template('shop-single.html', product=product, related_products=related_products)
 
 
 @app.route('/about')

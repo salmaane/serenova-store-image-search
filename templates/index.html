@@ -126,7 +126,7 @@
                 {%for product in featured_products%}
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
-                            <a href="{{url_for('shopSingle')}}">
+                            <a href="{{url_for('shopSingle', pid=product.ProductId)}}">
                                 <img src="{{product.ImageURL}}" class="card-img-top" alt="...">
                             </a>
                             <div class="card-body">
@@ -140,7 +140,7 @@
                                     </li>
                                     <li class="text-muted text-right">$240.00</li>
                                 </ul>
-                                <a href="{{url_for('shopSingle')}}" class="h2 text-decoration-none text-dark">{{product.ProductTitle}}</a>
+                                <a href="{{url_for('shopSingle', pid=product.ProductId)}}" class="h2 text-decoration-none text-dark">{{product.ProductTitle}}</a>
                                 <p class="card-text">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
                                 </p>
