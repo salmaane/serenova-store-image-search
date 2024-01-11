@@ -1,7 +1,12 @@
+import json
 import math
+import pprint
 
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, jsonify
 from pymongo import MongoClient
+import cv2
+import numpy as np
+from model import getSimilarImages
 
 app = Flask(__name__)
 
@@ -69,6 +74,47 @@ def shop():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@app.route('/image-search', methods=['POST'])
+def imageSearch():
+    if 'image' not in request.files:
+        return jsonify({'No file part'})
+
+    file = request.files['image']
+
+    if file.filename == '':
+        return jsonify({'No image selected for uploading'})
+
+    similar_products = []
+    if file and allowed_file(file.filename):
+        image = read_image_as_array(file)
+        similar_images, distance, filenames = getSimilarImages(image)
+
+        found_images_filenames = []
+        for i in range(5):
+            if distance[0][i] < 0.8:
+                found_images_filenames.append(filenames[int(similar_images[i])])
+
+        found_images_id = []
+        for filename in found_images_filenames:
+            found_images_id.append(int(filename.split('\\')[1].split('.')[0]))
+
+        similar_products = list(products.find({"ProductId": {'$in': found_images_id}}))
+
+    return json.dumps(similar_products, default=str)
+
+
+def read_image_as_array(image):
+    # Read the image file as a NumPy array
+    np_arr = np.frombuffer(image.read(), np.uint8)
+    image_array = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+    return image_array
+
+
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 if __name__ == '__main__':
