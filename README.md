@@ -25,28 +25,28 @@ Lead the end-to-end development process, including deep learning model implement
 
 ### App Preview
 #### Home page
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(45).png" height="350" width="600" alt="screenshot1"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(45).png" height="350" alt="screenshot1"/>
 
 #### Footer
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(47).png" height="350" width="600" alt="screenshot2"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(47).png" height="350" alt="screenshot2"/>
 
 #### About Page
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(48).png" height="350" width="600" alt="screenshot3"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(48).png" height="350" alt="screenshot3"/>
 
 #### Products Page with Filter and Pagination
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(49).png" height="350" width="600" alt="screenshot4"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(49).png" height="350" alt="screenshot4"/>
 
 #### Contact Page
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(50).png" height="350" width="600" alt="screenshot5"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(50).png" height="350" alt="screenshot5"/>
 
 #### Image Upload
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(51).png" height="350" width="600" alt="screenshot6"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(51).png" height="350" alt="screenshot6"/>
 
 #### Search By Image
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(53).png" height="350" width="600" alt="screenshot7"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(53).png" height="350" alt="screenshot7"/>
 
 #### Similar images/products
-<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(54).png" height="350" width="600" alt="screenshot8"/>
+<img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(54).png" height="350" alt="screenshot8"/>
 
 #### Search By Image
 <img src="https://raw.githubusercontent.com/salmaane/serenova-store-image-search/master/readme_images/Screenshot%20(56).png" height="350" width="600" alt="screenshot9"/>
