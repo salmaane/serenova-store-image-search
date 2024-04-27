@@ -103,7 +103,7 @@ function searchProducts() {
                         <div class="col-md-3">
                             <div class="card mb-4 product-wap rounded-0 overflow-hidden" style="height: 480px">
                                 <div class="card rounded-0">
-                                    <img class="card-img rounded-0" src="${data[i]['ImageURL']}" alt="" style="max-height: 300px">
+                                    <img class="card-img rounded-0" src="/static/img/images/${data[i]['Image']}" alt="" style="max-height: 300px">
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <ul class="list-unstyled">
                                             <li><a class="btn btn-success text-white" href="/shop-single/${data[i]['ProductId']}"><i class="far fa-heart"></i></a></li>

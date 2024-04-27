@@ -16,7 +16,7 @@ def prepareModel():
         GlobalMaxPooling2D()
     ])
 
-    feature_list = np.array(pickle.load(open("model/featurevector.pkl", "rb")))
+    feature_list = np.array(pickle.load(open("model/features.pkl", "rb")))
     filenames = pickle.load(open("model/filenames.pkl", "rb"))
     return model, feature_list, filenames
 

@@ -1,7 +1,5 @@
 import json
 import math
-import pprint
-
 from flask import Flask, render_template, url_for, request, redirect, jsonify
 from pymongo import MongoClient
 import cv2
